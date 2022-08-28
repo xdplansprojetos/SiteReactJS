@@ -3,24 +3,16 @@ import Home from './Pages/Home/home';
  import {
    BrowserRouter as Router,
    Switch,
-   Route,
-   Link
+   Route
  } from "react-router-dom";
 import Contact from './Pages/Contact/contact';
 import Servicos from './Pages/Services/services';
 import AppBarMenu from './Components/AppBar/appbar'
 
-import { createBrowserHistory } from 'history';
-
 function App() {
 
-  const history = createBrowserHistory({
-    basename: "/"
-  })
-  
-
   return (
-    <Router history={history}>
+    <Router>
       <div className="App">
         <AppBarMenu />
         <Switch>

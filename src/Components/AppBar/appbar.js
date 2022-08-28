@@ -13,15 +13,26 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
+// import { useNavigate } from 'react-router-dom';
 
-  
-
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
+
+  const pages = [`Produtos`, 'Pricing', 'Blog'];
+  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+  
+  // const navigate = useNavigate();
+
+  // const produtosLink = () => {
+  //   navigate.push('/contato')
+  // }
+
+
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,6 +48,10 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  
+  // const handleRotaContato = () => {
+  //   history.push('/products')
+  // };
 
 
 
