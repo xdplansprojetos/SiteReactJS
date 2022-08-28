@@ -13,21 +13,37 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-// import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 const ResponsiveAppBar = () => {
 
-  const pages = [`Produtos`, 'Pricing', 'Blog'];
-  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-  
-  // const navigate = useNavigate();
-
-  // const produtosLink = () => {
-  //   navigate.push('/contato')
-  // }
-
-
+  const pages = [{
+    name: 'Home',
+    pathname: ``,
+  }, {
+    name: 'Contato',
+    pathname: `\contato`
+  }, {
+    name: 'Serviços',
+    pathname: '\servicos'
+  }
+  ];
+  const settings = [{
+    name: 'Perfil',
+    pathname: '\perfil'
+  },
+  {
+    name: 'Minha Conta',
+    pathname: '\conta'
+  },
+  {
+    name: 'Dashboard',
+    pathname: '\dashboard'
+  },
+  {
+    name: 'Sair',
+    pathname: '\logout'
+  }];
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -48,11 +64,6 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  
-  // const handleRotaContato = () => {
-  //   history.push('/products')
-  // };
-
 
 
   return (
@@ -109,7 +120,11 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link to={`/${page.pathname}`}>
+                      {page.name}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -140,7 +155,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link to={`/${page.pathname}`}>{page.name}</Link>
               </Button>
             ))}
           </Box>
@@ -169,7 +184,11 @@ const ResponsiveAppBar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center">
+                    <Link to={`/${setting.pathname}`}>
+                      {setting.name}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
