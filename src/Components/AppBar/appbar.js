@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 import { Link } from 'react-router-dom';
 
-const ResponsiveAppBar = () => {
+function ResponsiveAppBar () {
 
   const pages = [{
     name: 'Home',
@@ -23,6 +23,9 @@ const ResponsiveAppBar = () => {
   }, {
     name: 'Contato',
     pathname: `\contato`
+  }, {
+    name: 'Loja',
+    pathname: `\produtos`
   }, {
     name: 'Serviços',
     pathname: '\servicos'
@@ -86,7 +89,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            XD Plans
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -150,13 +153,15 @@ const ResponsiveAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <Link to={`/${page.pathname}`}>{page.name}</Link>
-              </Button>
+              <Link to={`/${page.pathname}`}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
 
@@ -183,13 +188,17 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
+                <Link to={`/${setting.pathname}`}>
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">
-                    <Link to={`/${setting.pathname}`}>
+                  
+                    <Typography textAlign="center">
+
                       {setting.name}
-                    </Link>
-                  </Typography>
+
+                    </Typography>
+                  
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -198,4 +207,5 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+
+export default ResponsiveAppBar

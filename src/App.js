@@ -8,14 +8,25 @@ import Home from './Pages/Home/home';
 import Contact from './Pages/Contact/contact';
 import Servicos from './Pages/Services/services';
 import AppBarMenu from './Components/AppBar/appbar'
+import ListaProdutos from './Pages/Loja/ListaProdutos/listaprodutos';
+import React, { useEffect, useState } from 'react';
+
+
+
+
 
 function App() {
+
+
 
   return (
     <Router>
       <div className="App">
         <AppBarMenu />
         <Switch>
+          <Route path="/produtos">
+          <ListaProdutos />
+          </Route>
           <Route path="/contato">
           <Contact />
           </Route>
